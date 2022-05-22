@@ -6,7 +6,7 @@ const app = express()
 app.get('/', (req, res) => {
   console.log('Petición recibida')
 
-  res.status(200).send('<h1>Hola mundo!</h1>')
+  res.status(200).send('<h1>Hola mundo sin .env!</h1>')
 })
 
 const PORT = process.env.PORT
