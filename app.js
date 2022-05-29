@@ -5,6 +5,8 @@ require('dotenv').config()
 
 const app = express()
 
+console.log(process.env.MARTIN)
+
 mongoose
   .connect(
     `mongodb+srv://mgesualdo:${process.env.MONGO_DB_PASS}@development.7fstqap.mongodb.net/stock-app?retryWrites=true&w=majority`
