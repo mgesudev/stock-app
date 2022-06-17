@@ -1,11 +1,11 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const path = require('path')
-require('dotenv').config()
+const cors = require('cors')
 
 const app = express()
 
-console.log(process.env.MARTIN)
+app.use(cors())
 
 mongoose
   .connect(
@@ -32,6 +32,13 @@ const Product = mongoose.model('Product', productSchema)
 app.use(express.json())
 
 app.post('/api/v1/products', (req, res) => {
+  if (!req.body.name) {
+    res.status(400).json({
+      ok: false,
+      message: 'El campo Nombre del producto es obligatorio',
+    })
+    return
+  }
   const newProduct = new Product(req.body)
 
   newProduct
@@ -41,7 +48,5 @@ app.post('/api/v1/products', (req, res) => {
     })
     .catch((err) => console.log(err))
 })
-
-app.use(express.static(path.join(__dirname, 'public')))
 
 const PORT = process.env.PORT
