@@ -3,7 +3,7 @@ const Product = require('../models/product')
 const getProducts = async (req, res) => {
   const products = await Product.find()
 
-  res.status(200).json({ ok: true, pepito: products.length })
+  res.status(200).json({ ok: true, products, count: products.length })
 }
 
 const createProduct = (req, res) => {
