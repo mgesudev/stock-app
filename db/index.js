@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 const dbConnect = (app) => {
   mongoose
@@ -10,7 +10,7 @@ const dbConnect = (app) => {
       app.listen(PORT, () => {
         console.log(`Servidor escuchando en el puerto ${PORT}`)
       })
-      console.log('Conexión exitosa a la BBDD')
+      console.log("Conexión exitosa a la BBDD")
     })
     .catch((err) => console.log(err))
 }
