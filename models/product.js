@@ -5,6 +5,7 @@ const productSchema = mongoose.Schema(
     name: { type: String, required: true },
     price: Number,
     deleted: { type: Boolean, default: false },
+    stock: Number,
   },
   { timestamps: true }
 )
